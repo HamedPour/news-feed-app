@@ -1,6 +1,14 @@
 <template>
   <v-app>
     <div class="wrapper">
+      <v-toolbar fixed dark color="primary">
+        <v-toolbar-title class="white--text">iNews</v-toolbar-title>
+        <v-spacer></v-spacer>
+        <v-btn icon @click="reloadPage">
+          <v-icon >refresh</v-icon>
+        </v-btn>
+      </v-toolbar>
+
       <v-container>
         <source-selection></source-selection>
         <v-divider></v-divider>
@@ -24,6 +32,11 @@ export default {
   components: {
     'source-selection': SourceSelection,
     'news-list': NewsList
+  },
+  methods: {
+    reloadPage () {
+      location.reload()
+    }
   },
   name: 'App'
 }

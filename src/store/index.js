@@ -13,6 +13,10 @@ export const store = new Vuex.Store({
   mutations: {
     gettonArticles (state, payload) {
       state.newsArticles = payload
+    },
+    resetPage (state) {
+      state.newsArticles = null
+      state.chosenNewsSource = null
     }
   },
   // ----------------------------------------------------------------------Actions
@@ -30,6 +34,9 @@ export const store = new Vuex.Store({
         .catch(err => {
           console.log(err)
         })
+    },
+    resetPage ({commit}) {
+      commit('resetPage')
     }
   },
   // ----------------------------------------------------------------------Getters
